@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title> INSPIRE Program </title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/styles.css">
+        <script src="/javascripts/form.js"></script>
+    </head>
+    <body>
+        <div class="title-new title"><p><%= postList.thread %></p></div>
+        <% postList.posts.forEach(function(post){ %>
+            <div class="card-thread">
+            <div class="name-thread"><p><%= post.author %></p></div>
+            <div class="info"><p><%= post.content %></p></div>
+            </div>
+        <% }) %>
+        <form class="form-thread" action="/thread/<%= postList.thread%>" method="post">
+            <div class="form-group">
+              <textarea name="postcontent" placeholder="Write Post Message" rows="5"></textarea>
+            </div>
+            <button type="submit" class="button" id="form-button">POST MESSAGE</button>
+        </form>
+    </body>
+</html>

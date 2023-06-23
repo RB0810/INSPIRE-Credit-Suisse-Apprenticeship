@@ -1,0 +1,21 @@
+<%- include("partials/header") -%>
+<% threadList.forEach(function(thread){ %>
+    <div class="card-thread">
+        <a href="/thread/<%= thread.thread %>" target="_blank"><div class="title-thread"><p><%= thread.thread %></p></div></a> 
+        <div class="name"><p>Created by: <%= thread.created %></p></div>
+        <div class="info"><p><%= thread.desc %></p></div>
+    </div>
+<% }) %>
+<form class="form-thread" method="post" action="/discussion">
+    <div class="form-group">
+      <input type="text" name="titlethread" placeholder="Thread Title">
+    </div>
+    <div class="form-group">
+      <textarea name="descthread" placeholder="What is your thread about?" rows="5"></textarea>
+    </div>
+    <button type="submit" class="button" id="form-button">CREATE THREAD</button>
+  </form>
+  
+
+</body>
+</html>

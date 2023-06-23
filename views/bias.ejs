@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title> INSPIRE Program </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/styles.css">
+        <script src="/javascripts/form.js"></script>
+    </head>
+    <body>
+        <img id="bias" src="/images/bias.png" alt="bias">
+        <div class="bias-deets">
+            <div class="title"><p><%= UncBias.name %></p></div>
+            <div class="info"><p><%= UncBias.desc %></p></div>
+            <div class="title" id="exp"><p>Colleagues’ Experience</p></div>
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <% UncBias.experience.forEach(function(item, index){ %>
+                    <div class="carousel-item <%= index === 0 ? 'active' : '' %>" data-bs-interval="2000">
+                      <div class="carousel-content carousel-mycard">
+                        <div class="name"><p><%= item.name %></p></div>
+                        <div class="info"><p><%= item.content %></p></div>
+                      </div>
+                    </div>
+                  <% }) %>
+                </div>
+              </div>
+            <button class="button right" onclick="openForm()">ADD YOUR OWN </button>               
+            <div class="title" id="art"><p>Related Articles</p></div>  
+            <div class="grid">
+            <% for(let i=0; i<6; i++){ %>
+                <div class="card-grid">
+                    <div class="name"><p>Weight Bias and Stigmatization: What is it and what to do about it?</p></div>
+                    <div class="info"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p></div>
+                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6592337/" target="_blank"><div class="button green-btn">Read More</div></a> 
+                </div>
+            <% } %>                               
+        </div>
+        <div class="form-container" id="formContainer">
+            <div class="close-btn" onclick="closeForm()">&times;</div>
+            <form class="form" action="/experience/<%= UncBias._id %>" method="post">
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Add Experience</label>
+                    <textarea name="yourExp" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="form-check mb-3">
+                    <input name="anonymous" class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">Post as anonymous</label>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>            
+        </div>
+    </div>
+    </body>
+</html>

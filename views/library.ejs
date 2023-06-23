@@ -1,0 +1,16 @@
+<%- include("partials/header") -%>
+<% biasList.forEach(function(bias){ %>
+    <div class="card">
+        <div class="text">
+          <div class="title"><p><%= bias.name %></p></div>
+          <div class="info"><p><%= bias.desc %></p></div>
+          <a href="/bias/<%=bias._id %>" target="_blank"><div class="button">READ MORE</div></a>
+          <div class="test"><p>Take a test to check if you have this bias</p></div>
+          <div class="info"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+          <a href="https://implicit.harvard.edu/implicit/selectatest.html" target="_blank"><div class="button">TAKE THE TEST</div></a>
+        </div>
+        <img src="/images/weight bias.png" alt="Weight Bias">
+    </div>
+<% }) %>
+</body>
+</html>
