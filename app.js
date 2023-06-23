@@ -10,6 +10,8 @@ const date = require(__dirname + "/public/javascripts/date.js")
 var bias=[];
 var thread=[];
 var username="";
+var invalidVal="";
+var userVal="";
 
 const app = express();
 
@@ -19,11 +21,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 app.get("/", async function(req, res){
-    res.render("login");
+    res.render("login", {invalid: invalidVal});
 });
 
 app.get("/register", async function(req, res){
-    res.render("register");
+    res.render("register", {invalid: userVal});
 });
 
 app.get("/library", async function(req, res){
@@ -62,6 +64,7 @@ app.post("/", async function(req, res){
         res.redirect("/library");
     }else{
         res.redirect("/");
+        invalidVal = "INVALID EMAIL ID OR PASSWORD";
         console.log("Invalid id pw");
     }
 });
@@ -76,13 +79,19 @@ app.post("/register", async function(req, res){
         password: pwd,
         reflection: []
     }
-    var inserted = userDB.insertUser(newUser);
-    if(inserted){
-        res.redirect("/")
-    }
-    else{
-        res.show("Error adding user")
-    }
+    var exists = await userDB.findUser(emailid);
+    if(exists){
+        userVal = "Account with this email id exists"
+        res.redirect("/register");
+    }else{
+        var inserted = userDB.insertUser(newUser);
+        if(inserted){
+            res.redirect("/")
+        }
+        else{
+            res.show("Error adding user")
+        }
+    }  
 });
 
 app.post("/reflection", async function(req, res){

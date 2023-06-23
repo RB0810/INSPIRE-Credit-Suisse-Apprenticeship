@@ -16,6 +16,22 @@ async function loginAuth(emailid, pwd){
     }
 };
 
+async function findUser(emailid){
+  try{
+      await client.connect();
+
+      const database = client.db("INSPIRE");
+      const col = database.collection("user");
+      const user = await col.findOne({email: emailid});
+      console.log(user);
+      return user;
+
+
+  }catch (error) {
+      console.error("Error occurred:", error);
+  }
+};
+
 async function insertUser(doc){
     try {
       await client.connect();
@@ -66,4 +82,4 @@ async function insertReflection(user123, obj){
   }
 }
 
-module.exports = { loginAuth , insertUser , findReflection , insertReflection }
+module.exports = { loginAuth , insertUser , findReflection , insertReflection , findUser }
