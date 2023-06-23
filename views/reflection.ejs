@@ -1,5 +1,21 @@
 <%- include("partials/header") -%>
-<h1>Self Reflection</h1>
+<% reflectionList.forEach(function(thread){ %>
+    <div class="card-thread">
+        <div class="title-post"><p><%= thread.title %></p></div>
+        <div class="name"><p>Created on: <%= thread.date %></p></div>
+        <div class="info"><p><%= thread.post %></p></div>
+    </div>
+<% }) %>
+<form class="form-thread" action="/reflection" method="post">
+    <div class="form-group">
+      <input type="text" name="titlepost" placeholder="Post Title">
+    </div>
+    <div class="form-group">
+      <textarea name="descpost" placeholder="Write your post here..." rows="5"></textarea>
+    </div>
+    <button type="submit" class="button" id="form-button">CREATE POST</button>
+  </form>
+  
 
 </body>
 </html>
