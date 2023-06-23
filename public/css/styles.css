@@ -222,6 +222,34 @@ html{
     color: #808080;
   }
 
+  .login-details p{
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #1ABC9C;
+  }
+
+  .register-details p{
+    padding: 0;
+    margin-top: 50px;
+    margin-bottom: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #F06E6E;
+  }
+
+  .register-link p{
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #F06E6E;
+    text-decoration: underline;
+  }
+
   .name-thread p{
     margin: 0;
     padding: 0;
@@ -315,7 +343,33 @@ html{
   margin-bottom: 20px;
 }
 
+.flex{
+  display: flex;
+  direction: column;
+  height: 100%;
+}
 
+.auth-img{
+  flex-basis: 40%;
+  height: 100%;
+}
+
+.auth-form{
+  flex-basis: 60%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#auth-image{
+  height: 100%;
+  width: 100%;
+}
+
+.formauth{
+  width: 70%;
+}
 
 
   

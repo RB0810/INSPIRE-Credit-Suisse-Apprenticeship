@@ -1,6 +1,45 @@
-<form action="/" method="post">
-    <input type="text" name="email" placeholder="Enter Email">
-    <input type="text" name="password" placeholder="Enter Password">
-    <button type="submit">LOGIN</button>
-</form>
-<a href="/register"><div class="button">REGISTER</div></a> 
+<html>
+    <head>
+        <title>INSPIRE Program</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/styles.css">
+        <style>
+            body, html{
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex">
+            <div class="auth-img">
+                <img id="auth-image" src="/images/login.jpg">
+            </div>
+            <div class="auth-form">
+                <div class="formauth">
+                    <div class="title-post"><p>LOGIN</p></div>
+                    <div class="login-details"><p>Login to your account!</p></div>
+                    <form action="/" method="post">
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Email id</label>
+                            <input type="text" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="text" name="password" class="form-control" id="exampleInputEmail1" placeholder="Enter Password">
+                        </div>
+                       
+                        <button type="submit" class="button">LOGIN</button>
+                    </form>
+                    <div class="register-details"><p>Don't have an account with us?</p></div>
+                    <a href="/register"><div class="register-link"><p>Register here</p></div></a>
+                </div>              
+            </div>
+        </div>  
+    </body>
+</html>
+
+
