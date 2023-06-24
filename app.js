@@ -22,10 +22,12 @@ app.use(express.static("public"));
 
 app.get("/", async function(req, res){
     res.render("login", {invalid: invalidVal});
+    invalidVal = "";
 });
 
 app.get("/register", async function(req, res){
     res.render("register", {invalid: userVal});
+    userVal = "";
 });
 
 app.get("/library", async function(req, res){
